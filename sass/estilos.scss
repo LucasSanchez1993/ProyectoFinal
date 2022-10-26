@@ -1,0 +1,353 @@
+// mi index
+
+@import "utilities/variables";
+@import "utilities/listas";
+@import "utilities/mixin";
+@import "utilities/extend";
+@import "utilities/reset";
+
+/* estilos de body index */
+
+body{
+    background-image: url(../img/playalogo.jpg);
+    nav{
+        background-color:nth($colores,5);
+        text-align: center;
+        font-family: sans-serif;
+        margin: 0.2rem;
+
+        div{
+            justify-content: flex-end;
+        }
+        .pagil{
+            border-style:groove;
+            color: wheat;
+            padding: 0.2rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            align-content: flex-end;
+        }
+    }
+    main{
+        background-image: url(../img/fondo-azul.jpg);
+        @extend %flex;
+        h1{
+            color: white;
+            font-weight: 1000;
+            font-size: xx-large;
+        }
+        h2{
+            color:nth($colores,3 );
+            justify-content: center;
+         }
+         img{
+            display: block;
+            border-radius: 30px;
+            width: 95%;
+            align-items: center;
+            padding: 3px;
+         }
+        button{
+            @include botones;
+            &:hover{
+                background-color: rgb(143, 143, 88);
+        }
+         }
+     }
+     section{
+        display: none;
+     }
+     footer{
+        background-color: $color-footer-index;
+        color:#F5EDDC ;
+        text-align: center;
+     }
+}
+.logo{
+    width: 10%;
+}
+
+/* media queris index */
+
+@media screen and (min-width:600px){
+    body{
+        background-image: url(../img/fondo-azul.jpg);
+        nav{
+            background-color:nth($colores,5);
+            text-align: center;
+            font-family: sans-serif;
+            margin: 0.2rem;
+            h1{
+                text-align: left;
+                color: rgb(11, 11, 12);
+            }
+            div{
+                justify-content: end;
+            }
+            .pagil{
+                border-style: initial;
+                padding: 1px;
+                background-color: aquamarine;
+                color: black;
+            }
+        }
+        .mainind{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-row: 1fr 1fr 1fr  1fr 1fr;
+            grid-template-areas: 
+            "h1 h1 h1"
+            "h2 h2 h2"
+            "img img img"
+            "img img img"
+            "button button button";
+            h1{
+                grid-area: h1;
+                justify-content: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                color:white;font-weight: 1000;
+                font-size: 300%;
+            }
+            h2{
+                grid-area: h2;
+                @include h2index;
+                }
+                justify-content: center;
+            img{
+                grid-area: img;
+                display: block;
+                border-radius: 30px;
+            }
+            .boton{
+                grid-area: button;
+                &:hover{
+                        background-color: rgb(143, 143, 88);
+                }
+            }
+        }
+
+          section{
+            display: block;
+            animation-name: color-fondo;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            display: flex;
+            flex-direction: row;
+            gap: 0.8rem;
+            justify-content: center;
+            align-items: flex-end;
+            }
+      @keyframes color-fondo {
+         0%{
+            background-color: #cee9e4;
+         }
+         50%{
+            background-color:#a5eee1 ;
+         }
+         100%{
+            background-color: #79f0da;
+         }
+         
+      }
+      
+      section div img{
+         padding: 0.1rem;
+      }
+    }
+}
+
+/* estilos de hoteles */
+
+.hoteles-nav{
+    background-color:nth($colores,5);
+    div a{
+        @include navegador;
+    }
+}
+
+.hoteles-main{
+    @extend %flex;
+    color: white;
+}
+
+@media screen and (min-width:600px){
+    .hotelesm{
+        display: grid;
+        grid-template-columns: 1fr, 1fr;
+        grid-template-rows:0.5fr,1 fr, 1fr;
+        grid-template-areas:
+        "hoteleshuno hoteleshuno"
+        "h2 lujosos"
+        "hbaratos baratos";
+    }
+    .hoteleshuno{
+        grid-area: hoteleshuno;
+    }
+    h2{
+        grid-area: h2;
+        justify-content: center;
+        max-width: 70%;
+        
+    }
+    .lujosos{
+        grid-area: lujosos;
+        width: 80%;
+    }
+    .hbaratos{
+        grid-area: hbaratos;
+        width: 80%;
+    }
+    .baratos{
+        grid-area: baratos;
+        justify-content: center;
+        max-width: 70%;
+    }
+}
+
+// nosotros
+
+/* estilos nosotros */
+
+.nosotros-nav{
+    background-color:nth($colores,5);
+    div a{
+        border-style: ridge;
+        background-color:black;
+        color: wheat;
+        padding: 0.2rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+    }
+}
+
+.nosotros-main{
+    @extend %flex;
+    h1{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 4000;
+    }
+    h2{
+        color: #a5eee1;
+        max-width: 75%;
+        justify-content: center;
+    }
+    h3{
+        color: #bddd2d;
+        justify-content: center; 
+    }
+}
+
+.video{
+    width: 95%;
+}
+
+// playas
+
+/* estilos de playa */
+
+.playas-nav{
+    background-color:nth($colores,5);
+    div a{
+        border-style: ridge;
+        background-color:black;
+        color: wheat;
+        padding: 0.2rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+    }
+}
+
+.playas-main{
+    display: flex;
+    div{
+        font-weight: 1000;
+    }
+}
+.card{
+    gap: 0.7rem;
+    width: 90%;
+    align-items: center;
+    background-color:rgb(226, 211, 211);
+}
+
+@media screen and (min-width:600px){
+    .playas-main{
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr;
+        grid-template-rows:0.2fr 0.2fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "playas-uno playas-uno playas-uno"
+        "hdosplayas hdosplayas hdosplayas"
+        "img-uno img-dos img-tres"
+        "img-cuatro img-cinco img-seis"
+        "img-siete img-ocho img-nueve";
+    }
+    .playas-uno{
+        grid-area: playas-uno;
+        justify-content: start;
+    }
+    .hdosplayas{
+        grid-area: hdosplayas;
+        justify-content: center;
+    }
+    .zoom{
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+
+// cuentas
+
+/* estilos de cuentas */
+
+.cuenta-nav{
+    background-color:nth($colores,5);
+    div a{
+        border-style: ridge;
+        background-color:black;
+        color: wheat;
+        padding: 0.2rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+}
+ .cuentas{
+    display: block;
+    display: flex;
+    flex-direction: column;
+ }
+
+ .cuentasp{
+    color: greenyellow;
+    &:hover{
+        color: brown;
+    }
+ }
+
+ .cuadro{
+    background-color: nth($colores,4);
+    border-radius: 1rem;
+ }
+
+ .comentarioc{
+    width: 60%;
+    background-color: nth($colores,4);
+    border-radius: 1rem;
+ }
+
+ .botonc{
+    border-radius: 0.8rem;
+    background-color: rgb(13, 13, 63);
+    color: rgb(216, 224, 186);
+    &:hover{
+        color: brown;
+    }
+ }
+
+ /* footer de todos */
+
+ .footer-todos{
+    background-color: $color-footer-otros;
+    color: whitesmoke;
+ }
+ 
